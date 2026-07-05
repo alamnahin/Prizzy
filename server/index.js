@@ -54,24 +54,11 @@ app.use(
   cors({
     origin: (origin, callback) => {
       const allowed = [
-        process.env.FRONTEND_URL, // e.g. https://your-app.vercel.app
-        process.env.BACKEND_URL, // e.g. https://your-app.vercel.app
-        https://sandbox.sslcommerz.com,
-      ].filter(Boolean); // drop undefined if FRONTEND_URL not set
-      // Allow requests with no origin (curl, Postman) AND origin "null"
-      // (browsers send the literal string "null" for file:// pages and for
-      // payment gateway POST-back redirects like SSLCommerz success/fail/cancel).
-      // Also allow any ngrok tunnel so local dev works without hardcoding the URL.
-      if (
-        !origin ||
-        origin === "null" ||
-        allowed.includes(origin) ||
-        /\.ngrok(-free)?\.app$/.test(origin)
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error(`CORS: origin ${origin} not allowed`));
-      }
+        process.env.FRONTEND_URL,
+        process.env.BACKEND_URL,
+        "https://sandbox.sslcommerz.com",
+        "https://securepay.sslcommerz.com",
+      ].filter(Boolean);
     },
     credentials: true,
   }),
