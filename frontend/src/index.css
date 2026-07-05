@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #FFFFFF;
+    color: #1A1A2E;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+@layer base {
+  :root {
+        --background: 0 0% 100%;
+        --foreground: 240 30% 14%;
+        --card: 0 0% 100%;
+        --card-foreground: 240 30% 14%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 30% 14%;
+        --primary: 333 100% 59%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 270 67% 39%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 240 10% 40%;
+        --accent: 333 100% 95%;
+        --accent-foreground: 333 100% 40%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 333 100% 59%;
+        --chart-1: 333 100% 59%;
+        --chart-2: 270 67% 39%;
+        --chart-3: 280 70% 50%;
+        --chart-4: 320 80% 60%;
+        --chart-5: 290 60% 55%;
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+}
+
+/* Custom utilities */
+.text-gradient {
+  background: linear-gradient(135deg, #FF2D78 0%, #6B21A8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.shadow-brand {
+  box-shadow: 0 10px 40px -10px rgba(255, 45, 120, 0.3);
+}
+
+.shadow-brand-lg {
+  box-shadow: 0 20px 60px -10px rgba(255, 45, 120, 0.4);
+}
+
+/* Smooth transitions for interactive elements only */
+button, a, input, .product-card, .category-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
