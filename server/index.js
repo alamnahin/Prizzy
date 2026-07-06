@@ -59,6 +59,13 @@ app.use(
         "https://sandbox.sslcommerz.com",
         "https://securepay.sslcommerz.com",
       ].filter(Boolean);
+
+      // Allow requests with no origin (server-to-server, curl, etc.)
+      if (!origin || allowed.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`CORS: Origin ${origin} not allowed`));
+      }
     },
     credentials: true,
   }),
